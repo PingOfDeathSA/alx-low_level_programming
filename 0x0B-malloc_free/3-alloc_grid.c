@@ -15,7 +15,7 @@ return (NULL);
 Test = malloc(sizeof(int *) * height);
 if (Test == NULL)
 return (NULL);
-for (x_test = 0; x_test < height; x++)
+for (x_test = 0; x_test < height; x_test++)
 {
 Test[x_test] = malloc(sizeof(int) * width);
 
