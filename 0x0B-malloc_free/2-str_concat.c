@@ -7,7 +7,7 @@
  * @s2: input two to concat
  * Return: concat of string1 and string2
  */
-char *str_concat(char *s1, char *s2)
+char *str_concat(char *string1, char *string2)
 {
 char *conct;
 int i, ci;
