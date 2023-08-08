@@ -14,7 +14,7 @@ int i_value, n_value, r = 0, l = 0;
 char *string;
 if (ac == 0 || av == NULL)
 return (NULL);
-for (i_value = 0; i_value < ac; i++)
+for (i_value = 0; i_value < ac; i_value++)
 {
 for (n_value = 0; av[i_value][n_value]; n_value++)
 l++;
