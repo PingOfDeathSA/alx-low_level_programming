@@ -16,7 +16,7 @@ if (ac == 0 || av == NULL)
 return (NULL);
 for (i_value = 0; i_value < ac; i++)
 {
-for (n_value = 0; av[i_value][n_value]; n++)
+for (n_value = 0; av[i_value][n_value]; n_value++)
 l++;
 }
 l += ac;
@@ -25,7 +25,7 @@ if (string == NULL)
 return (NULL);
 for (i_value = 0; i_value < ac; i_value++)
 {
-for (n_value = 0; av[i_value][n_value]; n++)
+for (n_value = 0; av[i_value][n_value]; n_value++)
 {
 string[r] = av[i_value][n_value];
 r++;
@@ -37,3 +37,4 @@ string[r++] = '\n';
 }
 return (string);
 }
+
