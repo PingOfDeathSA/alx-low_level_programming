@@ -10,13 +10,14 @@
  */
 char *create_array(unsigned int size, char c)
 {
-char *String1;
-unsigned int i;
-String1 = malloc(sizeof(char) * size);
-if (size == 0 || String1 == NULL)
-return (NULL);
-for (i = 0; i < size; i++)
-String1[i] = c;
-return (String1);
-}
+	char *str;
+	unsigned int i;
 
+	str = malloc(sizeof(char) * size);
+	if (size == 0 || str == NULL)
+		return (NULL);
+
+	for (i = 0; i < size; i++)
+		str[i] = c;
+	return (str);
+}
