@@ -11,18 +11,17 @@
  */
 struct dog_1
 {
-	char *name_1;
-	float age_1;
-	char *owner_1;
+	char *name;
+	float age;
+	char *owner;
 };
 
 typedef struct dog_1 dog_t;
 
-void init_dog(struct dog_1 *d_1, char *name_1, float age_1, char *owner_1);
+void init_dog(struct dog_1 *d_1, char *name, float age, char *owner);
 void print_dog(struct dog_1 *d_1);
-dog_t *new_dog(char *name_1, float age_1, char *owner_1);
+dog_t *new_dog(char *name, float age, char *owner);
 void free_dog(dog_t *d_1);
 char *_strcpy(char *dest_1, char *String_1);
 int _strlen(char *s_1);
-
 #endif
