@@ -19,7 +19,7 @@ int size_Checker;
 
 if (cmp <= 0 || size == NULL || array == NULL )
 return (-1);
-for (size_Checker = 0; i < size; size_Checker++)
+for (size_Checker = 0; size_Checker < size; size_Checker++)
 {
 if (cmp(array[size_Checker]))
 return (size_Checker);
