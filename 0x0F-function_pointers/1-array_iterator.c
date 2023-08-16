@@ -20,7 +20,6 @@ void array_iterator(int *array, size_t size, void (*action)(int))
 		return;
 	for (checker = 0; checker < size; checker++)
 	{
-	action(array[i]);
+	action(array[checker]);
 	}
 }
-
