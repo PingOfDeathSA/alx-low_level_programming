@@ -1,44 +1,69 @@
 #include "3-calc.h"
 
-int op_add(int first, int second);
-int op_sub(int first, int second);
-int op_mul(int first, int second);
-int op_div(int first, int second);
-int op_mod(int first, int second);
+// Function prototypes for arithmetic operations
+int op_add(int num1, int num2);
+int op_sub(int num1, int num2);
+int op_mul(int num1, int num2);
+int op_div(int num1, int num2);
+int op_mod(int num1, int num2);
 
 /**
- * op_add - Returns the sum of two numbers.
- * @a: The first number.
- * @b: The second number.
+ * add - Adds two numbers.
+ * @num1: The first number.
+ * @num2: The second number.
  *
- * This function takes two input numbers, 'a' and 'b', and calculates their sum.
- * The result is then returned as the output of the function.
- *
- * Return: The sum of 'a' and 'b'.
+ * Returns: The sum of num1 and num2.
  */
-
-int op_add(int first, int second)
+int op_sub(int num1, int num2)
 {
-	return (first + second);
+    return (num1 + num2);
 }
 
-int op_sub(int first, int second)
+/**
+ * subtract - Subtracts two numbers.
+ * @num1: The first number.
+ * @num2: The second number.
+ *
+ * Returns: The difference between num1 and num2.
+ */
+int op_sub(int num1, int num2)
 {
-	return (first - second);
+    return (num1 - num2);
 }
 
-int op_mul(int first, int second)
+/**
+ * multiply - Multiplies two numbers.
+ * @num1: The first number.
+ * @num2: The second number.
+ *
+ * Returns: The product of num1 and num2.
+ */
+int op_mul(int num1, int num2)
 {
-	return (first * second);
+    return (num1 * num2);
 }
 
-int op_div(int first, int second)
+/**
+ * divide - Divides two numbers.
+ * @num1: The first number (dividend).
+ * @num2: The second number (divisor).
+ *
+ * Returns: The result of dividing num1 by num2.
+ */
+int op_div(int num1, int num2)
 {
-	return (first / second);
+    return (num1 / num2);
 }
 
-int op_mod(int first, int second)
+/**
+ * find_remainder - Computes the remainder of division.
+ * @num1: The first number (dividend).
+ * @num2: The second number (divisor).
+ *
+ * Returns: The remainder of dividing num1 by num2.
+ */
+int op_mod(int num1, int num2)
 {
-	return (first % second);
+    return (num1 % num2);
 }
 

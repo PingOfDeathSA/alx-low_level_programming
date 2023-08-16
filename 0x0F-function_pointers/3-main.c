@@ -2,46 +2,45 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "3-calc.h"
-/**
- * Main Function: Display outcomes of basic operations.
- * 
- * Entry Point Parameters:
- * @argc: Number of supplied program arguments.
- * @argv: Array of argument pointers.
- * 
- * Returns: Always 0.
- */
 
+/**
+ * main - Executes basic arithmetic calculations using user-provided input.
+ * @argc: The count of command-line arguments.
+ * @argv: An array of pointers to the arguments.
+ *
+ * Return: Always 0.
+ */
 int main(int __attribute__((__unused__)) argc, char *argv[])
 {
-	int Int1, Int2;
-	char *Operation;
+    int firstNumber, secondNumber;
+    char *operator;
 
-	if (argc != 4)
-	{
-		printf("Error\n");
-		exit(98);
-	}
+    if (argc != 4)
+    {
+        printf("Error\n");
+        exit(98);
+    }
 
-	Int1 = atoi(argv[1]);
-	Operation = argv[2];
-	Int2 = atoi(argv[3]);
+    firstNumber = atoi(argv[1]);
+    operator = argv[2];
+    secondNumber = atoi(argv[3]);
 
-	if ( Operation[1] != '\0' || get_op_func(Operation) == NULL)
-	{
-		printf("Error\n");
-		exit(99);
-	}
+    if (get_op_func(operator) == NULL || operator[1] != '\0')
+    {
+        printf("Error\n");
+        exit(99);
+    }
 
-	if ((*Operation == '%' && Int2 == 0) ||(*Operation == '/' && Int2 == 0)
-	    )
-	{
-		printf("Error\n");
-		exit(100);
-	}
+    if ((*operator == '/' && secondNumber == 0) ||
+        (*operator == '%' && secondNumber == 0))
+    {
+        printf("Error\n");
+        exit(100);
+    }
 
-	printf("%d\n", get_op_func(Operation)(Int1, Int2));
+    int result = get_op_func(operator)(firstNumber, secondNumber);
+    printf("%d\n", result);
 
-	return (0);
+    return (0);
 }
 
