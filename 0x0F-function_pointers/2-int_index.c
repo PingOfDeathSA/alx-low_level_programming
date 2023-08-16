@@ -17,7 +17,7 @@ int int_index(int *array, int size, int (*cmp)(int))
 {
 int size_Checker;
 
-if (cmp <= 0 || size == NULL || array == NULL )
+if (cmp == NULL|| size <= 0  || array == NULL )
 return (-1);
 for (size_Checker = 0; size_Checker < size; size_Checker++)
 {
