@@ -5,7 +5,7 @@
  */
 void _print_rev_recursion(char *new_string)
 {
-	if (*s)
+	if (*new_string)
 	{
 		_print_rev_recursion(new_string + 1);
 		_putchar(*new_string);
