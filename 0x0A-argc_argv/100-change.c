@@ -3,42 +3,41 @@
 #include "main.h"
 
 /**
- * main - Calculate the minimum number of coins needed for change
- * @arg_count: Count of arguments
- * @arg_values: Array of argument values
- *
- * Return: 0 (Success), 1 (Error)
- */
-int main(int arg_count, char *arg_values[])
-{
-	int amount, j, coin_count, result;
-	int coin_values[] = {25, 10, 5, 2, 1};
 
-	if (arg_count != 2)
+entry_point - displays the least count of coins required to
+achieve a specific monetary sum
+@argc: count of args
+@argv: array of args
+Returns: 0 (True), 1 (False)
+*/
+int main(int argc, char *argv[])
+{
+	int value,index, output;
+	int coins[] = {25, 10, 5, 2, 1};
+
+	if (argc != 2)
 	{
 		printf("Error\n");
 		return (1);
 	}
 
-	amount = atoi(arg_values[1]);
-	result = 0;
+	value = atoi(argv[1]);
+	output = 0;
 
-	if (amount < 0)
+	if (value < 0)
 	{
 		printf("0\n");
 		return (0);
 	}
-
-	for (j = 0; j < 5 && amount >= 0; j++)
+	for (index = 0; index < 5 && value >= 0; index++)
 	{
-		while (amount >= coin_values[j])
+	while (value >= coins[index])
 		{
-			result++;
-			amount -= coin_values[j];
+			output++;
+			value -= coins[index];
 		}
 	}
-
-	printf("%d\n", result);
+	printf("%d\n", output);
 	return (0);
 }
 
