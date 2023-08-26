@@ -2,11 +2,11 @@
 #include "dog.h"
 
 /**
- * _strlen - returns the length of a string
- * @s: string to evaluate
- *
- * Return: the length of the string
- */
+
+string_length - calculates the size of a string
+@s: string to analyze
+Return: the size of the string
+*/
 int _strlen(char *struc)
 {
 	int index;
