@@ -2,88 +2,60 @@
 #include "dog.h"
 
 /**
-
-_strlen - function that gives the length of a string
-@structure: the string to be assessed
-Return: the count of characters in the string
-*/
-
-int _strlen(char *structure)
+ * _strlen - returns the length of a string
+ * @s: string to evaluate
+ *
+ * Return: the length of the string
+ */
+int _strlen(char *struc)
 {
-    int index = 0;
-
-    for (int i = 0; structure[i] != '\0'; i++)
-    {
-        if (structure[i] != '\0')
-        {
-            index++;
-        }
-    }
-
-    return index;
+	int index;
+	index = 0;
+	while (struc[index] != '\0')
+	{
+	index++;
+	}
+	return (index);
 }
 
 
-
-char *_strcpy(char *dination, char *struc)
+char *_strcpy(char *dest, char *struc)
 {
-    int lenght = 0;
-
-    while (struc[lenght] != '\0')
-    {
-        lenght++;
-    }
-
-    int lenght = 0;
-    while (lenght < lenght)
-    {
-        dination[lenght] = struc[lenght];
-        lenght++;
-    }
-    dination[lenght] = '\0';
-
-    return dination;
+{
+int num = 0;
+for (num = 0; struc[num]; num++)
+des[num] = struc[num];
+des[num] = '\0';
+return (des);
 }
+}
+
 
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	dog_t *dog;
-int langth1, langth2;
-
-langth1 = _strlen(name);
-langth2 = _strlen(owner);
-
-dog = malloc(sizeof(dog_t));
-if (dog != NULL)
-{
-    dog->name = malloc(sizeof(char) * (langth1 + 1));
-    if (dog->name != NULL)
-    {
-        dog->owner = malloc(sizeof(char) * (langth2 + 1));
-        if (dog->owner != NULL)
-        {
-            _strcpy(dog->name, name);
-            _strcpy(dog->owner, owner);
-            dog->age = age;
-            return dog;
-        }
-        else
-        {
-            free(dog->name);
-            free(dog);
-            return NULL;
-        }
-    }
-    else
-    {
-        free(dog);
-        return NULL;
-    }
-}
-else
-{
-    return NULL;
-}
-
+	dog_t *doggie;
+	int owner1, owner2;
+	owner1 = _strlen(name);
+	owner2 = _strlen(owner);
+	doggie = malloc(sizeof(dog_t));
+	if (doggie == NULL)
+		return (NULL);
+	doggie->name = malloc(sizeof(char) * (owner1 + 1));
+	if (doggie->name == NULL)
+	{
+free(doggie);
+return (NULL);
+	}
+	doggie->owner = malloc(sizeof(char) * (owner2 + 1));
+	if (doggie->owner == NULL)
+	{
+		free(doggie);
+		free(doggie->name);
+		return (NULL);
+	}
+	_strcpy(doggie->name, name);
+	_strcpy(doggie->owner, owner);
+	doggie->age = age;
+	return (dog);
 }
 
