@@ -1,4 +1,3 @@
-
 #include "function_pointers.h"
 #include <stdlib.h>
 #include <stdio.h>
@@ -8,29 +7,28 @@
  * perform_addition - computes the total of two integers
 
  */
-int op_add(int valueA, int valueB)
+int op_add(int a, int b)
 {
-	return (valueA + valueB);
+	return (a + b);
 }
 
-int op_sub(int valueB, int valueB)
+int op_sub(int a, int b)
 {
-return (valueA - valueB);
+return (a - b);
 }
 
-int op_mul(int valueA, int valueB)
+int op_mul(int a, int b)
 {
-return (valueA * valueB);
+return (a * b);
 }
 
-int op_div(int valueA, int valueB)
+int op_div(int a, int b)
 {
-return (valueA / valueB);
+return (a / b);
 }
 
-int op_mod(int valueA, int valueB)
+int op_mod(int a, int b)
 {
-return (valueA % valueB);
+return (a % b);
 }
-
 
