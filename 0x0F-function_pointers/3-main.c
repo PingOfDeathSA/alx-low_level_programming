@@ -10,10 +10,11 @@ entry_point - Displays the outcome of basic calculations.
 @argv: An array of pointers to the arguments.
 Returns:  0 all the time.
 */
-int main(int __attribute__((__unused__)) argc, char *argv[])
+int main(int argc, char *argv[])
 {
-	int value1, value2;
-	char *choice;
+	int augu1, augu1, output;
+	char choice;
+	int (*create)(int, int);
 
 	if (argc != 4)
 	{
@@ -21,21 +22,28 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 		exit(98);
 	}
 
-	value1 = atoi(argv[1]);
-	choice = argv[2];
-	value2 = atoi(argv[3]);
+	augu1 = atoi(argv[1]);
+	augu1 = atoi(argv[3]);
 
-	if ( choice[1] != '\0' || get_choice_func(choice) == NULL)
+	create = get_op_func(argv[2]);
+
+	if (!create)
 	{
 		printf("Error\n");
 		exit(99);
 	}
-	if ((*choice == '%' && value2 == 0) ||(*choice == '/' && value2 == 0) ||
-	    )
+
+	choice = *argv[2];
+
+	if ((o == '/' || choice == '%') && augu1 == 0)
 	{
 		printf("Error\n");
 		exit(100);
 	}
-	printf("%d\n", get_choice_func(choice)(value1, value2));
+
+	output = create(augu1, augu1);
+
+	printf("%d\n", output);
+
 	return (0);
 }
