@@ -19,7 +19,7 @@ int _strlen(char *struc)
 }
 
 
-char *_strcpy(char *dest, char *struc)
+char *_strcpy(char *des, char *struc)
 {
 {
 int num = 0;
@@ -56,6 +56,6 @@ return (NULL);
 	_strcpy(doggie->name, name);
 	_strcpy(doggie->owner, owner);
 	doggie->age = age;
-	return (dog);
+	return (doggie);
 }
 
