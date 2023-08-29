@@ -8,13 +8,13 @@ Return: count of nodes
 */
 size_t listint_len(const listint_t *h)
 {
-    size_t value_number = 0;
-   const listint_t *converter2 = h; 
-    while (h)
-    {
-        value_number++;
-        converter2 = converter2->next;
-    }
+ 	size_t value_x = 0;
 
-    return (value_number);
+	while (h)
+	{
+		value_x++;
+		h = h->next;
+	}
+
+	return (value_x);
 }
