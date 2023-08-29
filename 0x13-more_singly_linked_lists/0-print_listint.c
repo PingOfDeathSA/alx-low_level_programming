@@ -9,8 +9,8 @@
  */
 size_t print_listint(const listint_t *h)
 {
-size_t value_num = 0;
 const listint_t *converter = h;
+size_t value_num = 0;
 while (converter)
 {
 printf("%d\n", converter->n);
