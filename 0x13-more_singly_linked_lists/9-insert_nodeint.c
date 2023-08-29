@@ -16,32 +16,35 @@ unsigned int index;
 listint_t *new_node;
 listint_t *current_node = *head;
 
-new_node = malloc(sizeof(listint_t));
-if (!new_node || !head)
-    return NULL;
 
-new_node->n = n;
-new_node->next = NULL;
+	new_node = malloc(sizeof(listint_t));
+	if (!new_node || !head)
+		return (NULL);
 
-if (index == 0)
-{
-    new_node->next = *head;
-    *head = new_node;
-    return new_node;
+	new_node->n = n;
+	new_node->next = NULL;
+
+	if (idx == 0)
+	{
+		new_node->next = *head;
+		*head = new_node;
+		return (new_node);
+	}
+
+	for (index = 0; current_node && index < idx; index++)
+	{
+		if (index == idx - 1)
+		{
+			new_node->next = current_node->next;
+			current_node->next = new_node;
+			return (new_node);
+		}
+		else
+			current_node = current_node->next;
+	}
+
+	return (NULL);
+
 }
 
-for (index = 0; current_node && index < idx; index++)
-{
-    if (index == idx - 1)
-    {
-        new_node->next = current_node->next;
-        current_node->next = new_node;
-        return new_node;
-    }
-    else
-        current_node = current_node->next;
-}
 
-return NULL;
-
-}
