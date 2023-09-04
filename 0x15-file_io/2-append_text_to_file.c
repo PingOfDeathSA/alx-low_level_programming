@@ -12,27 +12,27 @@
  */
 
 int append_text_to_file(const char *filename, char *text_content)
+
 {
-    int file_descriptor, bytes_written, text_length = 0;
+	int file_o, file_w, text_len = 0;
 
+	if (filename == NULL)
+		return (-1);
 
-    if (filename == NULL)
-        return (-1);
+	if (text_content != NULL)
+	{
+		for (text_len = 0; text_content[text_len];)
+			text_len++;
+	}
 
-    if (text_content != NULL) {
-        while (text_content[text_length] != '\0')
-            text_length++;
+	file_o = open(filename, O_WRONLY | O_APPEND);
+	file_w = write(file_o, text_content, text_len);
 
-    file_descriptor = open(filename, O_WRONLY | O_APPEND);
+	if (file_o == -1 || file_w == -1)
+		return (-1);
 
-   bytes_written = write(file_descriptor, text_content, text_length);
+	close(file_o);
 
+	return (1);
 
-    if (file_descriptor == -1 || bytes_written == -1)
-        return (-1);
-
-    close(file_descriptor);
-
-    return (1);
-}
 }
