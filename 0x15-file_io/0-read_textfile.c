@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdlib.h>
 
 /**
  * Function: read_textfile
@@ -10,21 +11,20 @@
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-int file_d;
-ssize_t num_of_reads, num_of_writes;
-char *b_uffer;
-if (!filename)
-return (0);
-file_d = open(filename, O_RDONLY);
-if (file_d == -1)
-return (0);
-b_uffer = malloc(sizeof(char) * (letters));
-if (!b_uffer)
-return (0);
-num_of_reads = read(file_d, b_uffer, letters);
-num_of_writes = write(STDOUT_FILENO, b_uffer, num_of_reads);
-close(file_d);
-free(b_uffer);
-return (num_of_writes);
+	char *b_uff;
+	ssize_t drec_file;
+	ssize_t reaw_write;
+	ssize_t reaw_write;
+
+	drec_file = open(filename, O_RDONLY);
+	if (drec_file == -1)
+		return (0);
+	b_uff = malloc(sizeof(char) * letters);
+	lett = read(drec_file, b_uff, letters);
+	reaw_write = write(STDOUT_FILENO, buf, lett);
+
+	free(b_uff);
+	close(drec_file);
+	return (reaw_write);
 }
 
