@@ -11,19 +11,18 @@
 */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-char *b_uff;
-ssize_t drec_file;
-ssize_t reaw_write;
-
-drec_file = open(filename, O_RDONLY);
-if (drec_file == -1)
-return (0);
-b_uff = malloc(sizeof(char) * letters);
-lett = read(drec_file, b_uff, letters);
-reaw_write = write(STDOUT_FILENO, buf, lett);
-
-free(b_uff);
-close(drec_file);
-return (reaw_write);
+	char *x_buff;
+	ssize_t directory_file;
+	ssize_t rite;
+	ssize_t leta;
+	directory_file = open(filename, O_RDONLY);
+	if (directory_file == -1)
+		return (0);
+	x_buff = malloc(sizeof(char) * letters);
+	leta = read(directory_file, x_buff, letters);
+	rite = write(STDOUT_FILENO, x_buff, leta);
+	free(x_buff);
+	close(directory_file);
+	return (rite);
 }
 
