@@ -1,20 +1,21 @@
 #include "lists.h"
-#include <stdio.h>
-#include <stddef.h>
 /**
-release_listint2 - deallocates a linked list
-@head: pointer to the listint_t list to be deallocated
-*/
+ * free_listint2 - frees a linked list and sets the head to NULL
+ * @head: pointer to the 1st node of the linked list
+ */
 void free_listint2(listint_t **head)
 {
-    listint_t *tp;
-if (head != NULL) {
-    while (*head != NULL) {
-        tp = (*head)->next;
-        free(*head);
-        *head = tp;
-    }
-    
-    *head = NULL;
-}
+	listint_t *temp;
+
+	if (head == NULL)
+		return;
+
+	while (*head)
+	{
+		temp = (*head)->next;
+		free(*head);
+		*head = temp;
+	}
+
+	*head = NULL;
 }

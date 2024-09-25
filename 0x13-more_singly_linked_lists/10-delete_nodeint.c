@@ -1,19 +1,15 @@
 #include "lists.h"
-#include <stdio.h>
-#include <stddef.h>
 /**
-
-eliminate_nodeint_at_index - Erases a specific node from the linked list at a given position.
-@head: Pointer indicating the start of the list.
-@index: Position of the node to be erased.
-Return: Returns 1 if successful, or -1 if the operation is unsuccessful.
-*/
+ * delete_nodeint_at_index - deletes a node in a linked list at a certain index
+ * @head: pointer to the first node in the list
+ * @index: index of the node to delete
+ * Return: 1 (Success), or -1 (Fail)
+ */
 int delete_nodeint_at_index(listint_t **head, unsigned int index)
 {
-listint_t *temporary = *head; 
-listint_t *previous = NULL; 
-unsigned int position = 0; 
-
+	listint_t *temp = *head;
+	listint_t *current = NULL;
+	size_t i = 0;
 
 	if (*head == NULL)
 		return (-1);
@@ -21,23 +17,22 @@ unsigned int position = 0;
 	if (index == 0)
 	{
 		*head = (*head)->next;
-		free(temporary);
+		free(temp);
 		return (1);
 	}
 
-	while (position < index - 1)
+	while (i < index - 1)
 	{
-		if (!temporary || !(temporary->next))
+		if (!temp || !(temp->next))
 			return (-1);
-		temporary = temporary->next;
-		position++;
+
+		temp = temp->next;
+		i++;
 	}
 
-
-	previous = temporary->next;
-	temporary->next = previous->next;
-	free(previous);
+	current = temp->next;
+	temp->next = current->next;
+	free(current);
 
 	return (1);
 }
-

@@ -1,20 +1,17 @@
-#include <stdlib.h>
 #include "lists.h"
 /**
- * free_list - Releases memory occupied by a linked list.
- * @head: list_t list to be deallocated.
+ * free_list - frees a list
+ * @head: head of the linked list.
+ * Return: no return.
  */
-
-void free_list(list_t *h)
+void free_list(list_t *head)
 {
-	list_t *T;
+	list_t *current;
 
-	while (h)
+	while ((current = head) != NULL)
 	{
-		T = h->next;
-		free(h->str);
-		free(h);
-		h = T;
+		head = head->next;
+		free(current->str);
+		free(current);
 	}
 }
-

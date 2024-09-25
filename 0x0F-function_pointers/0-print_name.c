@@ -1,14 +1,16 @@
-#include "function_pointers.h"
 #include <stdio.h>
+#include "function_pointers.h"
 /**
-*This function takes a string name and a pointer to a function as parameters.
-*It checks if the function pointer is not NULL and if the name is not NULL.
-*If both conditions are met, the function pointer is used to execute the function on the name.
- **/
+ * print_name - function thats prints a name passed to it
+ * @name: char to display to the stdout
+ * @f: A pointer function
+ * author: Sammykingx
+ * Return: No return cause we've declared VOID as R_TYPE
+*/
 void print_name(char *name, void (*f)(char *))
 {
-	if ( f == NULL ||  name == NULL)
-	return;
-	 f(name);
-}
+	if (!name || !f) /* if any is NULL */
+		return;
 
+	f(name);
+}

@@ -1,17 +1,16 @@
 #include "lists.h"
-#include <stdio.h>
-#include <stddef.h>
-
 /**
-release_listint - deallocates a linked lis
-@start: listint_t list to be deallocated
-*/
+ * free_listint - frees a linked list
+ * @head: pointer to the 1st node of the linked list to be freed
+ */
 void free_listint(listint_t *head)
 {
-    listint_t *current;
+	listint_t *temp;
 
-  for (; head; head = current) {
-    current = head->next;
-    free(head);
-}
+	while (head)
+	{
+		temp = head->next;
+		free(head);
+		head = temp;
+	}
 }

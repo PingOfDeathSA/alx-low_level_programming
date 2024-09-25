@@ -1,12 +1,22 @@
 #include "main.h"
 
 /**
- * _islower - Verify if a character is in lowercase
- * @input_char: The character to verify
- * Return: 1 if input_char is lowercase, 0 otherwise
+ * _islower - Short description, single line
+ * @c: contains value to be compared
+ * Return: Always 0.
  */
-int _islower(int input_char)
-{
-	return (input_char >= 'a' && input_char <= 'z');
-}
+int _islower(int c)
 
+{
+
+	if (c > 'a' && c < 'z')
+	{
+		return (1);
+	}
+
+	else
+	{
+		return (0);
+	}
+
+}

@@ -1,1 +1,2 @@
-0x18. C - Dynamic libraries
+# Dynmic Libraries in c
+![dynamic_libraries](https://calmops.com/images/static-lib.png)

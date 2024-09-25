@@ -1,61 +1,48 @@
-#include <stdlib.h>
 #include "dog.h"
-
+#include <stdlib.h>
+#include <stdio.h>
 /**
-
-string_length - calculates the size of a string
-@s: string to analyze
-Return: the size of the string
-*/
-int _strlen(char *struc)
-{
-	int index;
-	index = 0;
-	while (struc[index] != '\0')
-	{
-	index++;
-	}
-	return (index);
-}
-
-
-char *_strcpy(char *des, char *struc)
-{
-{
-int num = 0;
-for (num = 0; struc[num]; num++)
-des[num] = struc[num];
-des[num] = '\0';
-return (des);
-}
-}
-
-
+ * new_dog - new dog
+ * @name: name's dog
+ * @age: age's dog
+ * @owner: owner's dog
+ * Return: newdog
+ */
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	dog_t *doggie;
-	int owner1, owner2;
-	owner1 = _strlen(name);
-	owner2 = _strlen(owner);
-	doggie = malloc(sizeof(dog_t));
-	if (doggie == NULL)
-		return (NULL);
-	doggie->name = malloc(sizeof(char) * (owner1 + 1));
-	if (doggie->name == NULL)
-	{
-free(doggie);
-return (NULL);
-	}
-	doggie->owner = malloc(sizeof(char) * (owner2 + 1));
-	if (doggie->owner == NULL)
-	{
-		free(doggie);
-		free(doggie->name);
-		return (NULL);
-	}
-	_strcpy(doggie->name, name);
-	_strcpy(doggie->owner, owner);
-	doggie->age = age;
-	return (doggie);
-}
 
+	int i = 0, j = 0, k;
+	dog_t *doge;
+
+	while (name[i] != '\0')
+		i++;
+	while (owner[j] != '\0')
+		j++;
+	doge = malloc(sizeof(dog_t));
+	if (doge == NULL)
+	{
+		free(doge);
+		return (NULL);
+	}
+	doge->name = malloc(i * sizeof(doge->name));
+	if (doge->name == NULL)
+	{
+		free(doge->name);
+		free(doge);
+		return (NULL);
+	}
+	for (k = 0; k <= i; k++)
+		doge->name[k] = name[k];
+	doge->age = age;
+	doge->owner = malloc(j * sizeof(doge->owner));
+	if (doge->owner == NULL)
+	{
+		free(doge->owner);
+		free(doge->name);
+		free(doge);
+		return (NULL);
+	}
+	for (k = 0; k <= j; k++)
+		doge->owner[k] = owner[k];
+	return (doge);
+}

@@ -1,40 +1,43 @@
 #include "main.h"
-#include <stdlib.h>
-
 /**
-argstostr - Entry point of the function
-@ac: Integer input representing the count of arguments
-@av: Double pointer array containing the arguments
-Return: Returns 0
-*/
+ * argstostr - prints args
+ * @ac: takes in width of grid
+ * @av: height of grid
+ * Return: the args one line at a time
+ */
 
 char *argstostr(int ac, char **av)
 {
-int i_value, n_value, r = 0, l = 0;
-char *string;
-if (ac == 0 || av == NULL)
-return (NULL);
-for (i_value = 0; i_value < ac; i_value++)
-{
-for (n_value = 0; av[i_value][n_value]; n_value++)
-l++;
-}
-l += ac;
-string = malloc(sizeof(char) * l + 1);
-if (string == NULL)
-return (NULL);
-for (i_value = 0; i_value < ac; i_value++)
-{
-for (n_value = 0; av[i_value][n_value]; n_value++)
-{
-string[r] = av[i_value][n_value];
-r++;
-}
-if (string[r] == '\0')
-{
-string[r++] = '\n';
-}
-}
-return (string);
-}
+	char *str;
+	int count = 0, a = 0, b = 0, c = 0;
 
+	if (ac == 0 || av == NULL)
+		return (NULL);
+	while (a < ac)
+	{
+		b = 0;
+		while (av[a][b] != '\0')
+		{
+			count++;
+			b++;
+		}
+		a++;
+	}
+	count = count + ac + 1;
+	str = malloc(sizeof(char) * count);
+	if (str == NULL)
+	{
+		return (NULL);
+	}
+	for (a = 0; a < ac; a++)
+	{
+		for (b = 0; av[a][b] != '\0'; b++)
+		{
+			str[c] = av[a][b];
+			c++;
+		}
+		str[c] = '\n';
+		c++;
+	}
+	return (str);
+}

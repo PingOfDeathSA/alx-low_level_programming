@@ -1,43 +1,45 @@
+#include <stdio.h>
 #include <stdlib.h>
 #include "main.h"
-
 /**
- * _memset - Fills a memory area with a specific character.
- * @dest: Pointer to the memory area to be filled.
- * @ch: Character to be copied.
- * @num: Number of times to copy the character.
- *
- * Returns: Pointer to the filled memory area.
+ * _memset - copy char
+ * @s: string
+ * @b: input
+ * @n: bytes
+ * Return: string
  */
-char *_memset(char *dest, char ch, unsigned int num)
+char *_memset(char *s, char b, unsigned int n)
 {
-unsigned int i;
+	unsigned int i;
 
-for (i = 0; i < num; i++)
-{
-dest[i] = ch;
-}
-return (dest);
-}
+	for (i = 0; i < n; i++)
+	{
+		s[i] = b;
+	}
 
+	return (s);
+}
 /**
- * _calloc - Allocates memory for an array and initializes to zero.
- * @num_elements: Number of elements in the array.
- * @element_size: Size of each element.
- *
- * Returns: Pointer to the allocated and initialized memory.
+ * _calloc - allocates memory for an array using malloc
+ * @nmemb: n elements
+ * @size: bytes
+ * Return: pointer
  */
-void *_calloc(unsigned int num_elements, unsigned int element_size)
+void *_calloc(unsigned int nmemb, unsigned int size)
 {
-char *ptr;
+	void *p;
 
-if (num_elements == 0 || element_size == 0)
-return (NULL);
-ptr = malloc(element_size * num_elements);
-if (ptr == NULL)
- return (NULL);
-_memset(ptr, 0, num_elements * element_size);
- return (ptr);
+	if (nmemb == 0 || size == 0)
+	{
+		return (NULL);
+	}
+	p = malloc(nmemb * size);
+
+	if (p == NULL)
+	{
+		return (NULL);
+	}
+	_memset(p, 0, (nmemb * size));
+
+	return (p);
 }
-
-

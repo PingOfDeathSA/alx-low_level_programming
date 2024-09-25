@@ -1,62 +1,29 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
-#include <string.h>
-
 /**
- * has_only_digits - Check if a string contains only digits
- * @str: The input string
- *
- * Return: 1 if the string contains only digits, 0 otherwise
+ * main - main funct
+ * @argc: param count
+ * @argv: param poiter
+ * Return: int
  */
-int has_only_digits(char *str)
+int main(int argc, char *argv[])
 {
-	unsigned int index = 0;
+	int i, j, sum = 0;
 
-	while (index < strlen(str))
+	for (i = 1; i < argc; i++)
 	{
-		if (!isdigit(str[index]))
+		for (j = 0; argv[i][j] != '\0'; j++)
 		{
-			return (0);
+			if (!isdigit(argv[i][j]))
+			{
+				printf("Error\n");
+				return (1);
+			}
 		}
-
-		index++;
+		sum += atoi(argv[i]);
 	}
-	return (1);
-}
-
-/**
- * main - Calculate the sum of integer arguments
- * @arg_count: Count of arguments
- * @arg_values: Array of argument values
- *
- * Return: Always 0 (Success)
- */
-int main(int arg_count, char *arg_values[])
-{
-	int count;
-	int str_to_int;
-	int sum = 0;
-
-	count = 1;
-	while (count < arg_count)
-	{
-		if (has_only_digits(arg_values[count]))
-		{
-			str_to_int = atoi(arg_values[count]);
-			sum += str_to_int;
-		}
-		else
-		{
-			printf("Error\n");
-			return (1);
-		}
-
-		count++;
-	}
-
 	printf("%d\n", sum);
 
 	return (0);
 }
-

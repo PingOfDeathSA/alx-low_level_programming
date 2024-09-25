@@ -1,1 +1,1 @@
-0x10. C - Variadic functions
+this directory contains the course contents for variadic functions in c programming.

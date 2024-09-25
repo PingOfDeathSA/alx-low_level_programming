@@ -1,14 +1,12 @@
 #include <stdio.h>
-
 /**
-
-The main function prints the name of the current file.
-
-@return Always 0 to indicate success.
-*/
+ * main - Program compilation starts from the main
+ * Description: this program prints the name of the file it was comipiled from
+ * author: sammykingx
+ * Return: 0 (success)
+ */
 int main(void)
 {
-printf("%s\n", __FILE__);
-
-return 0;
+	printf("%s\n", __FILE__);
+	return (0);
 }

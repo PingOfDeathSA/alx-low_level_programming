@@ -1,19 +1,18 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "main.h"
-
 /**
-
-entry_point - displays the least count of coins required to
-achieve a specific monetary sum
-@argc: count of args
-@argv: array of args
-Returns: 0 (True), 1 (False)
-*/
+ * main - function
+ * @argc: length of argv
+ * @argv: number of argument
+ * Return: Always 0
+ */
 int main(int argc, char *argv[])
 {
-	int value,index, output;
-	int coins[] = {25, 10, 5, 2, 1};
+	/*Declaring variables*/
+	int position, total, change, aux;
+	int coins[] = {25, 10, 5, 2, 1}; /*Array int*/
+
+	position = total = change = aux = 0;
 
 	if (argc != 2)
 	{
@@ -21,23 +20,27 @@ int main(int argc, char *argv[])
 		return (1);
 	}
 
-	value = atoi(argv[1]);
-	output = 0;
+	total = atoi(argv[1]); /*Covert str to int*/
 
-	if (value < 0)
+	if (total <= 0)
 	{
 		printf("0\n");
 		return (0);
 	}
-	for (index = 0; index < 5 && value >= 0; index++)
+
+	/*Declaring While*/
+	while (coins[position] != '\0')
 	{
-	while (value >= coins[index])
+		if (total >= coins[position])
 		{
-			output++;
-			value -= coins[index];
+			aux = (total / coins[position]);
+			change += aux;
+			total -= coins[position] * aux;
 		}
+
+		position++;
 	}
-	printf("%d\n", output);
+	printf("%d\n", change);
+
 	return (0);
 }
-

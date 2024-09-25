@@ -1,28 +1,27 @@
+#include <stdio.h>
 #include "function_pointers.h"
 /**
- * Function: Find the index of an element in an array based on a comparison function.
- * 
- * This function takes an array, its size, and a pointer to a comparison function as parameters.
- * It searches through the array and uses the comparison function to find an element.
- * If the comparison function returns true for an element, the index of that element is returned.
- * If no element satisfies the condition, -1 is returned.
- * 
- * @param array: The array to be searched.
- * @param size: The number of elements in the array.
- * @param cmp: A pointer to a comparison function.
- * @return: The index of the found element if true, otherwise -1.
+ * int_index - earches for an integer
+ * @array: array to search in
+ * @size: size of the array
+ * @cmp: pointer to the comparing function
+ *
+ * Return: index of the first element for which
+ * the cmp function does not return 0, or -1 if no match is found
+ * or size is negative
  */
-
 int int_index(int *array, int size, int (*cmp)(int))
 {
-int size_Checker;
+	int i;
 
-if (cmp == NULL|| size <= 0  || array == NULL )
-return (-1);
-for (size_Checker = 0; size_Checker < size; size_Checker++)
-{
-if (cmp(array[size_Checker]))
-return (size_Checker);
-}
-return (-1);
+	if (array && cmp)
+	{
+		for (i = 0; i < size; i++)
+		{
+			if (cmp(array[i]) != 0)
+				return (i);
+		}
+	}
+
+	return (-1);
 }

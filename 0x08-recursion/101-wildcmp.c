@@ -1,32 +1,28 @@
 #include "main.h"
-
 /**
- * wildcmp - Compares two strings.
- * @new_string1: Pointer to the first string parameter.
- * @new_string2: Pointer to the second string parameter.
- * 
- * Return: Always returns 0.
+ * wildcmp - Compare strings
+ * @s1: pointer to string params
+ * @s2: pointer to string params
+ * Return: 0
  */
-
-
-int wildcmp(char *new_string1, char *new_string2)
+int wildcmp(char *s1, char *s2)
 {
-	if (*new_string1 == '\0')
+	if (*s1 == '\0')
 	{
-		if (*new_string2 != '\0' && *new_string2 == '*')
+		if (*s2 != '\0' && *s2 == '*')
 		{
-			return (wildcmp(new_string1, new_string2 + 1));
+			return (wildcmp(s1, s2 + 1));
 		}
-		return (*new_string2 == '\0');
+		return (*s2 == '\0');
 	}
 
-	if (*new_string2 == '*')
+	if (*s2 == '*')
 	{
-		return (wildcmp(new_string1 + 1, new_string2) || wildcmp(new_string1, new_string2 + 1));
+		return (wildcmp(s1 + 1, s2) || wildcmp(s1, s2 + 1));
 	}
-	else if (*new_string1 == *new_string2)
+	else if (*s1 == *s2)
 	{
-		return (wildcmp(new_string1 + 1, new_string2 + 1));
+		return (wildcmp(s1 + 1, s2 + 1));
 	}
 	return (0);
 }
