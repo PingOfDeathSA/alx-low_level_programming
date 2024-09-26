@@ -1,19 +1,23 @@
 #include <stdio.h>
 
 /**
- * main - Entry point
- * autor: sammy
+ * main - prints all the numbers of base 16 in lowercase,
+ * followed by a new line
  * Return: Always 0 (Success)
  */
 int main(void)
 {
-	int sammy;
-	char kingx;
+	int n;
+	char ch;
 
-	for (sammy = 48; sammy < 58; sammy++)
-		putchar(sammy);
-	for (kingx = 'a'; kingx <= 'f'; kingx++)
-		putchar(kingx);
+	for (n = 48; n < 58; n++)
+	{
+		putchar(n);
+	}
+	for (ch = 'a'; ch <= 'f'; ch++)
+	{
+		putchar(ch);
+	}
 	putchar('\n');
 	return (0);
 }

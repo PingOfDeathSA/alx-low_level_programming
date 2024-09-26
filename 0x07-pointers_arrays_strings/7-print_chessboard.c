@@ -1,18 +1,19 @@
 #include "main.h"
-/**
-* print_chessboard - print chessboard given set 2D array
-* @a: 2D array
-*/
 
+/**
+ * print_chessboard - prints the chessboard
+ * @a: two dimension array to print
+ */
 void print_chessboard(char (*a)[8])
 {
-	int row;
-	int column;
+	int i, j;
 
-	for (row = 0; row < 8; row++)
+	for (i = 0; i < 8; i++)
 	{
-		for (column = 0; column < 8; column++)
-		_putchar(a[row][column]);
+		for (j = 0; j < 8; j++)
+		{
+			_putchar(a[i][j]);
+		}
 		_putchar('\n');
 	}
 }

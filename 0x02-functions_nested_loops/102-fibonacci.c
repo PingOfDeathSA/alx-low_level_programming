@@ -1,12 +1,13 @@
 #include <stdio.h>
 
 /**
- * main - something
- * Return: something
+ * main - prints the first 50 Fibonacci numbers, starting with 1 and 2
+ * followed by a new line
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
-	long int i, j, k, l;
+	long int i, j, k, next;
 
 	j = 1;
 
@@ -21,9 +22,9 @@ int main(void)
 		{
 			printf("%ld\n", j);
 		}
-		l = j + k;
+		next = j + k;
 		j = k;
-		k = l;
+		k = next;
 	}
 
 	return (0);

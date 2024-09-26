@@ -1,17 +1,17 @@
 #include <stdio.h>
 
 /**
- * main - Entry point
- *
- * Return: Always 0 (Success/correct)
+ * main - prints the alphabet in lowercase,
+ * followed by a new line
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
-	char sam;
+	char ch;
 
-	for (sam = 'a'; sam <= 'z'; sam++)
+	for (ch = 'a'; ch <= 'z'; ch++)
 	{
-		putchar(sam);
+		putchar(ch);
 	}
 	putchar('\n');
 	return (0);

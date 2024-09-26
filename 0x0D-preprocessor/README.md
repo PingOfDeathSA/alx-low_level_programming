@@ -1,11 +1,9 @@
-# About this Folder
-This folder is part of the ALX SE syllabus which aims in teaching us the concept of macros in c programming language and we can use macros in our source files.
+File 0-object_like_macro.h is a header file that defines a macro named SIZE as an abbreviation for the token 1024.
 
-It enables us understand the compilation process of c file from the source file to preprocessor, then to the compiler, and then to the assembler before the last stage which is the linker.
+File 1-pi.h is a header file that defines a macro named PI as an abbreviation for the token 3.14159265359.
 
-## Contents
-* A macro SIZE with value 1024
-* A macro PI with value 3.14159265359
-* A program that prints the name of file it was compiled from (__FILE__)
-* A function like macro ABS(X) for getting the absolute value of X
-* A function like macro SUM(X, Y) for summing two integers
+File 2-main.c is a program that prints the name of the file it was compiled from, followed by a new line.
+
+File 3-function_like_macro.h is a function-like macro ABS(x) that computes the absolute value of a number x.
+
+File 4-sum.h is a function-like macro SUM(x, y) that computes the sum of the numbers x and y.
